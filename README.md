@@ -2,24 +2,29 @@
   <img alt="Thanatos Logo" src="agent_icons/thanatos.svg" height="50%" width="50%">
 </p>
 
-# Thanatos
+# Karkinos
 
-[![GitHub License](https://img.shields.io/github/license/MythicAgents/thanatos)](https://github.com/MythicAgents/thanatos/blob/main/LICENSE)
-[![GitHub Release](https://img.shields.io/github/v/release/MythicAgents/thanatos)](https://github.com/MythicAgents/thanatos/releases/latest)
-[![Release](https://github.com/MythicAgents/thanatos/workflows/Release/badge.svg)](https://github.com/MythicAgents/thanatos/actions/workflows/release.yml)
+> A fork of [Thanatos](https://github.com/MythicAgents/thanatos) with enhanced capabilities
 
-Thanatos is a Windows and Linux C2 agent written in rust.
+Karkinos is a Windows and Linux C2 agent written in Rust, built on the Thanatos foundation with additional offensive features.
 
-# Installation
-To install Thanatos, you will need [Mythic](https://github.com/its-a-feature/Mythic) set up on a machine.
+## What's New in Karkinos
 
-In the Mythic root directory, use `mythic-cli` to install the agent.
+- **BOF/COFF Execution** - In-memory Beacon Object File execution using [coffeeldr](https://github.com/joaoviictorti/coffeeldr)
+  - Cobalt Strike-compatible argument packing
+  - Support for short, int, str, wstr, and binary argument types
+  - Module stomping for enhanced evasion
+
+## Installation
+
+Requires [Mythic](https://github.com/its-a-feature/Mythic) to be set up.
+
 ```bash
-sudo ./mythic-cli install github https://github.com/MythicAgents/thanatos
+sudo ./mythic-cli install github https://github.com/icryo/karkinos
 sudo ./mythic-cli payload start thanatos
 ```
 
-Thanatos supports the http C2 profile:  
+Karkinos supports the http C2 profile:
 ```bash
 sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http
 sudo ./mythic-cli c2 start http
@@ -34,16 +39,7 @@ sudo ./mythic-cli c2 start http
     * ssh-agent hijacking
   - Streaming portscan
   - Stand up TCP redirectors
-
-
-## Future Additions
-  - v0.2.0
-    * [ ] Socks proxying
-    * [ ] Windows token manipulation
-    * [ ] More browser script integration
-    * [ ] DNS C2 profile
-    * [ ] p2p capabilities
-    * [ ] In memory shellcode execution `execute-shellcode`
+  - **BOF/COFF execution (Windows)**
 
 ## General Commands
 
@@ -78,4 +74,9 @@ upload | `upload [popup]` | Upload a file to the host machine.
 ### Windows-specific Commands
 Command | Syntax | Description
 ------- | ------ | -----------
+bof | `bof [popup]` | Execute a Beacon Object File in memory with arguments.
 powershell | `powershell [command]` | Run a command using `powershell.exe /c` in a new thread.
+
+## Credits
+
+This project is a fork of [Thanatos](https://github.com/MythicAgents/thanatos) by the MythicAgents team. Original license applies.
