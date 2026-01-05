@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Thanatos Logo" src="agent_icons/thanatos.svg" height="50%" width="50%">
+  <img alt="Karkinos Logo" src="agent_icons/karkinos.svg" height="50%" width="50%">
 </p>
 
 # Karkinos
@@ -21,7 +21,7 @@ Requires [Mythic](https://github.com/its-a-feature/Mythic) to be set up.
 
 ```bash
 sudo ./mythic-cli install github https://github.com/icryo/karkinos
-sudo ./mythic-cli payload start thanatos
+sudo ./mythic-cli payload start karkinos
 ```
 
 Karkinos supports the http C2 profile:

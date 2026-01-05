@@ -18,13 +18,13 @@ from mythic_container.PayloadBuilder import (
 # pylint: disable=too-many-locals,too-many-branches,too-many-statements
 
 
-# Class defining information about the Thanatos payload
-class Thanatos(PayloadType):
-    name = "thanatos"  # Name of the payload
+# Class defining information about the Karkinos payload
+class Karkinos(PayloadType):
+    name = "karkinos"  # Name of the payload
     file_extension = "exe"  # default file extension to use when creating payloads
     author = "@M_alphaaa"  # authors
 
-    # Platforms that thanatos supports
+    # Platforms that karkinos supports
     supported_os = [
         SupportedOS.Windows,
         SupportedOS.Linux,
@@ -115,12 +115,12 @@ class Thanatos(PayloadType):
             required=False,
         ),
     ]
-    # Supported C2 profiles for thanatos
+    # Supported C2 profiles for karkinos
     c2_profiles = ["http"]
 
-    agent_path = pathlib.Path(".") / "thanatos" / "mythic"
-    agent_code_path = pathlib.Path(".") / "thanatos" / "agent_code"
-    agent_icon_path = agent_path / "agent_icon" / "thanatos.svg"
+    agent_path = pathlib.Path(".") / "karkinos" / "mythic"
+    agent_code_path = pathlib.Path(".") / "karkinos" / "agent_code"
+    agent_icon_path = agent_path / "agent_icon" / "karkinos.svg"
 
     # This function is called to build a new payload
     async def build(self) -> BuildResponse:
@@ -228,13 +228,13 @@ class Thanatos(PayloadType):
                     features.append("onload")
                 elif export_name != "entrypoint":
                     features.append("user")
-                    command += f"THANATOS_SHARED_ENTRYPOINT='{export_name}' "
+                    command += f"KARKINOS_SHARED_ENTRYPOINT='{export_name}' "
 
             # Finish off the cargo command used for building the agent
             command += f"cargo build --target {target_os} --release"
 
             if build_shared:
-                command += " -p thanatos_shared"
+                command += " -p karkinos_shared"
 
             if len(features) > 0:
                 command += f" --features {','.join(features)}"
@@ -288,16 +288,16 @@ class Thanatos(PayloadType):
             if build_shared:
                 # Set the payload output to the built shared library
                 target_name = (
-                    "libthanatos_shared.so"
+                    "libkarkinos_shared.so"
                     if self.selected_os == SupportedOS.Linux
-                    else "thanatos_shared.dll"
+                    else "karkinos_shared.dll"
                 )
             else:
                 # Set the payload output to the built executable
                 target_name = (
-                    "thanatos"
+                    "karkinos"
                     if self.selected_os == SupportedOS.Linux
-                    else "thanatos.exe"
+                    else "karkinos.exe"
                 )
 
             payload_path = (
@@ -307,7 +307,7 @@ class Thanatos(PayloadType):
                 resp.payload = f.read()
 
             # Notify Mythic that the build was successful
-            resp.set_build_message("Successfully built thanatos agent.")
+            resp.set_build_message("Successfully built karkinos agent.")
             resp.build_message += "\n"
             resp.build_message += str(command)
             resp.status = BuildStatus.Success

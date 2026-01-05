@@ -1,13 +1,13 @@
 +++
-title = "Thanatos"
+title = "Karkinos"
 chapter = true
 weight = 100
 +++
 
-![logo](/agents/thanatos/images/thanatos.svg?width=400px)
+![logo](/agents/karkinos/images/karkinos.svg?width=400px)
 
 ## Summary
-Thanatos is a general purpose Mythic C2 agent designed for both Windows and Linux targets. The
+Karkinos is a general purpose Mythic C2 agent designed for both Windows and Linux targets. The
 agent is written using the Rust programming language and compiles into Windows/Linux
 executables, shared libraries and Windows shellcode.
 
@@ -55,11 +55,11 @@ sleep interval. A configured sleep interval of 100 seconds will mean that during
 encrypted key exchange, the agent will make a C2 connection approximately every 25 seconds +/- the configured jitter.
 
 ### Checkin Retries
-Thanatos allows an option for configuring the number of checkin attempts. The agent will make
+Karkinos allows an option for configuring the number of checkin attempts. The agent will make
 these connection attempts in increasing intervals. The following formula shows how the
 new sleep interval is calculated after a failed checkin attempt.  
 
-![equation](/agents/thanatos/images/equation.svg?width=600px)
+![equation](/agents/karkinos/images/equation.svg?width=600px)
 
 The agent will simply double the configured sleep interval after each failed check in
 attempt.  
@@ -82,9 +82,9 @@ correct interval.
 The initial check in for Linux agents will include the kernel version along with
 specifying if the kernel has SELinux.
 
-![osinfo_linux](/agents/thanatos/images/osinfo_linux.png)
+![osinfo_linux](/agents/karkinos/images/osinfo_linux.png)
 
-![osinfo_selinux](/agents/thanatos/images/osinfo_selinux.png)
+![osinfo_selinux](/agents/karkinos/images/osinfo_selinux.png)
 
 ## Authors
  - [@M_alphaaa](https://twitter.com/M_alphaaa)

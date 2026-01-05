@@ -98,7 +98,7 @@ NOTES:
 """
     version = 1
     is_file_upload = True
-    author = "@thanatos"
+    author = "@karkinos"
     attackmapping = ["T1106"]  # Native API
     argument_class = BofArguments
     attributes = CommandAttributes(
@@ -106,7 +106,7 @@ NOTES:
     )
     browser_script = BrowserScript(
         script_name="bof",
-        author="@thanatos",
+        author="@karkinos",
         for_new_ui=True,
     )
 

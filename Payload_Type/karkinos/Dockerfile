@@ -1,6 +1,6 @@
-### Real Dockerfile for the thanatos payload
-# Note: Invoke this Dockerfile from the `Payload_Type/thanatos` directory using the command
-#   `docker build -t docker.io/mehrn00/thanatos:v0.1.3 -f .docker/Dockerfile .`
+### Real Dockerfile for the karkinos payload
+# Note: Invoke this Dockerfile from the `Payload_Type/karkinos` directory using the command
+#   `docker build -t docker.io/mehrn00/karkinos:v0.1.3 -f .docker/Dockerfile .`
 FROM docker.io/library/fedora:39
 
 # Version of sccache to install
@@ -72,10 +72,10 @@ RUN rm -f sccache-${SCCACHE_VERSION}-x86_64-unknown-linux-musl.tar.gz
 
 WORKDIR /Mythic
 COPY main.py main.py
-COPY thanatos thanatos
+COPY karkinos karkinos
 
 # Fetch dependencies
-WORKDIR /Mythic/thanatos/agent_code
+WORKDIR /Mythic/karkinos/agent_code
 
 RUN cargo vendor /vendor
 
