@@ -120,7 +120,6 @@ class Karkinos(PayloadType):
 
     agent_path = pathlib.Path(".") / "karkinos" / "mythic"
     agent_code_path = pathlib.Path(".") / "karkinos" / "agent_code"
-    agent_icon_path = agent_path / "agent_icon" / "karkinos.svg"
 
     # This function is called to build a new payload
     async def build(self) -> BuildResponse:

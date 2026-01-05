@@ -1,7 +1,3 @@
-<p align="center">
-  <img alt="Karkinos Logo" src="agent_icons/karkinos.svg" height="50%" width="50%">
-</p>
-
 # Karkinos
 
 > A fork of [Thanatos](https://github.com/MythicAgents/thanatos) with enhanced capabilities
