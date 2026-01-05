@@ -1,0 +1,11 @@
+[build]
+rustc-wrapper = "/usr/bin/sccache"
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "/vendor"
+
+[net]
+offline = true
